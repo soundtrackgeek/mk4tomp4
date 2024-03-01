@@ -14,6 +14,6 @@ for file_name in os.listdir(folder_path):
         mp4_file_path = os.path.join(folder_path, mp4_file_name)
 
         # Run the ffmpeg command to convert the file
-        subprocess.run(['ffmpeg', '-i', mkv_file_path, mp4_file_path])
+        subprocess.run(['ffmpeg', '-i', mkv_file_path, '-preset', 'ultrafast', mp4_file_path])
 
 print("Conversion complete.")
