@@ -2,9 +2,9 @@ import os
 import subprocess
 
 # Set the directory where your MP4 files are located
-source_directory = '/path/to/your/mp4/files'
+source_directory = 'c:\\Videos'
 # Set the directory where you want to save the MKV files
-destination_directory = '/path/to/save/mkv/files'
+destination_directory = 'c:\\Videos'
 
 # Create the destination directory if it doesn't exist
 if not os.path.exists(destination_directory):
