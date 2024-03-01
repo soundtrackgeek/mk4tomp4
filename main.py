@@ -1,23 +1,19 @@
 import os
 import subprocess
 
-# Set the directory where your MP4 files are located
-source_directory = 'c:\\Videos'
-# Set the directory where you want to save the MKV files
-destination_directory = 'c:\\Videos'
+# Folder containing the .mkv files
+folder_path = 'c:\\videos'
 
-# Create the destination directory if it doesn't exist
-if not os.path.exists(destination_directory):
-    os.makedirs(destination_directory)
-
-# Loop through all files in the source directory
-for filename in os.listdir(source_directory):
-    if filename.endswith('.mp4'):
+# Iterate over all files in the directory
+for file_name in os.listdir(folder_path):
+    # Check if the file is an .mkv file
+    if file_name.endswith('.mkv'):
         # Construct the full file paths
-        source_filepath = os.path.join(source_directory, filename)
-        destination_filepath = os.path.join(destination_directory, filename.replace('.mp4', '.mkv'))
-        
-        # Run the ffmpeg command to convert the file
-        subprocess.run(['ffmpeg', '-i', source_filepath, destination_filepath])
+        mkv_file_path = os.path.join(folder_path, file_name)
+        mp4_file_name = file_name.replace('.mkv', '.mp4')
+        mp4_file_path = os.path.join(folder_path, mp4_file_name)
 
-print('Conversion complete!')
+        # Run the ffmpeg command to convert the file
+        subprocess.run(['ffmpeg', '-i', mkv_file_path, mp4_file_path])
+
+print("Conversion complete.")
